@@ -18,3 +18,8 @@ pkg
 
 # environment files
 .env
+
+# Web deps and assets
+/web/_build
+/web/assets/node_modules
+/web/deps

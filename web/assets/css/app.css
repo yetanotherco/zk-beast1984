@@ -1,0 +1,134 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
+
+
+html {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+body {
+  padding: 1.5rem 0.5rem 1rem;
+  max-width: calc(min(90ch, round(down, 100%, 1ch)));
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+a {
+  word-break: keep-all;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 2.3rem 0 1.2rem;
+}
+
+.content {
+  padding: 0 1rem;
+}
+
+ul {
+  padding: 0 1.2rem;
+}
+
+p,
+li {
+  font-size: 1rem;
+  line-height: 1.5;
+  word-break: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+li {
+  margin-bottom: 0.3rem;
+}
+
+hr {
+  border: none;
+  height: 0.1rem;
+  background-color: transparent;
+  width: 100%;
+  margin: 30px auto;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+section {
+  margin-top: 24px;
+}
+
+.word-wrap {
+  word-break: break-all;
+}
+
+.default-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border: 1px solid lightgray;
+  background-color: white;
+  cursor: pointer;
+}
+
+.default-btn:hover {
+  border: 1px solid black;
+}
+
+.default-btn[disabled] {
+  cursor: not-allowed;
+  border: 1px solid lightgray;
+}
+
+
+.default-input {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  width: 60%;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border: 1px solid lightgray;
+}
+
+.box-success {
+  background-color: lightgreen;
+  color: white;
+
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.select-default {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border: 1px solid lightgray;
+  background-color: white;
+  cursor: pointer;
+}
+
+.address-box {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  padding: 0.3rem 1.5rem;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  border: 1px solid lightgray;
+  background-color: lightgreen;
+  color: white;
+  border-radius: 1rem;
+}
