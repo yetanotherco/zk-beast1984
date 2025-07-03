@@ -9,9 +9,26 @@
 <div style="display: flex;">
   <%= if Map.has_key?(@conn.assigns, :wallet) && @conn.assigns.wallet do %>
     <div style="margin-left:auto"> 
-      <a href="/terms-conditions" class="md:text-xl">
+      <p>
         Address: <%= inspect(@conn.assigns.wallet.address) %>
-      </a>
+      </p>
+
+      <x-app-disconnect-user network={Application.get_env(:zk_arcade, :network)}/>
+
+      <p>
+        You have <%= inspect(@conn.assigns.wallet.points) %> points
+      </p>
+
+      <x-app-get-user-balance 
+        network={Application.get_env(:zk_arcade, :network)}
+        payment_service_address={Application.get_env(:zk_arcade, :payment_service_address)}
+        user_address={String.downcase(@conn.assigns.wallet.address)} 
+      />
+
+      <x-app-send-funds-batcher 
+        network={Application.get_env(:zk_arcade, :network)}
+        payment_service_address={Application.get_env(:zk_arcade, :payment_service_address)}
+      />
     </div>
   <% else %>
     <div style="margin-left:auto"> 
@@ -21,3 +38,11 @@
     </div>
   <% end %>
 </div>
+
+<%= if Map.has_key?(@conn.assigns, :wallet) && @conn.assigns.wallet do %>
+  <div class="flex justify-center align-center">
+    <a href="/submit-proof" style="border: 2px solid black; padding: 8px 16px;"> Submit Proofs! </a>
+  </div>
+<% end %>
+
+

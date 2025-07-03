@@ -2,7 +2,7 @@ import React from "react";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ConnectKitProvider } from "connectkit";
-import { ConfigAnvil, ConfigSepolia, ConfigMainnet } from "../config";
+import { ConfigAnvil, ConfigSepolia, ConfigMainnet, ConfigHolesky } from "../config";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,6 +21,8 @@ const configSelector = (config_name) => {
       return ConfigSepolia;
     case "mainnet":
       return ConfigMainnet;
+    case "holesky":
+      return ConfigHolesky;
     default:
       return ConfigAnvil;
   }

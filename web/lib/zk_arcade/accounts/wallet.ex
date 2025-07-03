@@ -6,16 +6,27 @@ defmodule ZkArcade.Accounts.Wallet do
   @foreign_key_type :binary_id
   schema "wallets" do
     field :address, :string
+    field :points, :integer, default: 0
+    field :balance, :float, default: 0.0
     # TODO: Add the required fields to use in wallets
   end
 
   @doc false
   def changeset(wallet, attrs) do
     wallet
-    |> cast(attrs, [:address])
+    |> cast(attrs, [:address, :points, :balance])
     |> validate_address()
     |> validate_required([:address])
+    |> put_default(:points, 0)
+    |> put_default(:balance, 0.0)
     |> unique_constraint(:address, name: :wallets_address_index)
+  end
+
+  defp put_default(changeset, field, default) do
+    case get_field(changeset, field) do
+      nil -> put_change(changeset, field, default)
+      _ -> changeset
+    end
   end
 
   defp validate_address(changeset) do

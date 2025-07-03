@@ -81,6 +81,6 @@ config :phoenix_live_view,
   # Enable helpful, but potentially expensive runtime checks
   enable_expensive_runtime_checks: true
 
-config :zk_arcade, :proxy_contract_address, "0xBC9129Dc0487fc2E169941C75aABC539f208fb01"
+config :zk_arcade, :payment_service_address, "0x815aeCA64a974297942D2Bbf034ABEe22a38A003"
 
-config :zk_arcade, :network, "sepolia"
+config :zk_arcade, :network, "holesky"

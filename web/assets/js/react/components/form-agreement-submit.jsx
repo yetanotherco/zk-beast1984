@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useAccount, useSignMessage, useDisconnect } from "wagmi";
+import { useAccount, useSignMessage } from "wagmi";
 import { ConnectKitButton } from "connectkit";
 
 const FormAgreementSubmit = () => {

@@ -1,5 +1,5 @@
 import { http, createConfig } from 'wagmi'
-import { anvil, sepolia, mainnet } from 'wagmi/chains'
+import { anvil, sepolia, mainnet, holesky } from 'wagmi/chains'
 import { getDefaultConfig } from "connectkit";
 
 
@@ -33,6 +33,16 @@ export const ConfigMainnet = createConfig(
         chains: [mainnet],
         transports: {
             [mainnet.id]: http()
+        },
+        ...common_config
+    })
+);
+
+export const ConfigHolesky = createConfig(
+    getDefaultConfig({
+        chains: [holesky],
+        transports: {
+            [holesky.id]: http()
         },
         ...common_config
     })

@@ -5,7 +5,10 @@ defmodule ZkArcadeWeb.PageController do
   def home(conn, _params) do
     wallet =
       if address = get_session(conn, :wallet_address) do
-        ZkArcade.Accounts.fetch_wallet_by_address(address) |> elem(1)
+        case ZkArcade.Accounts.fetch_wallet_by_address(address) do
+          {:ok, wallet} -> wallet
+          _ -> nil
+        end
       else
         nil
       end
@@ -13,6 +16,12 @@ defmodule ZkArcadeWeb.PageController do
     conn
     |> assign(:wallet, wallet)
     |> render(:home, layout: false)
+  end
+
+  def disconnect_wallet(conn, _params) do
+    conn
+    |> delete_session(:wallet_address)
+    |> redirect(to: ~p"/")
   end
 
   def terms(conn, _params) do

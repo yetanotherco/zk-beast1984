@@ -1,0 +1,13 @@
+<div class="">
+    <h1 class="md:text-4xl font-semibold mb-2 pb-6">
+      Choose your proof:
+    </h1>
+    <%= if Map.has_key?(@conn.assigns, :error) do %>
+      <%!-- Show an error in case of failure --%>
+      <div class="text-red-500 font-semibold mb-2">
+        {@conn.assigns.error} :(
+      </div>
+    <% else %>
+      <x-app-submit-proof-batcher network={Application.get_env(:zk_arcade, :network)}/>
+    <% end %>
+</div>
