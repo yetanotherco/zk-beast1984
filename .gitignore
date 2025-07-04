@@ -24,3 +24,6 @@ pkg
 /web/assets/node_modules
 /web/deps
 /web/priv/static/assets/
+node_modules
+package-lock.json
+package.json
